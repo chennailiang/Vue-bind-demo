@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue2.X双向绑定简单实现</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <img style="width: 50%;" src="./vue底层原理关系图.png" />
+      <p v-text="test"></p>
+      <p v-html="html"></p>
+      <p>
+        <input type="text" v-model="test" />
+      </p>
+      <p>
+        <button @click="onClick">按钮</button>
+      </p>
+      <span style="color: blue">{{ test }}</span>
+    </div>
+
+    <script src="nvue.js"></script>
+    <script src="compile.js"></script>
+    <script>
+      const o = new NVue({
+        el: "#app",
+        data: {
+          test: "v-text",
+          foo: { bar: "bar" },
+          html: "<i>HTML</i>"
+        },
+        methods: {
+          onClick() {
+            alert("触发事件");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
